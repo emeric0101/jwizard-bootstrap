@@ -1,0 +1,56 @@
+
+.wizard {
+    border-radius: 10px;
+    border: 2px solid #6B95FF;
+    margin: auto auto 10px;
+    max-width: 900px;
+}
+.wizard > h3  {
+   padding-top: 10px;
+   padding-left: 10px;
+}
+    
+.wizard > .page {
+	min-height: 280px;
+	margin: 10px;
+}
+    
+.wizard > .toolbox {
+	border-top: 1px solid #6B95FF;
+	padding: 10px;
+}
+.wizard > .toolbox >.btn {
+	margin: 5px;
+}
+
+.displayNone {
+	display: none;
+}
+
+@media (max-width: 600px) { 
+    .wizard > h3{
+        font-size: 12pt;
+        padding-top: 0px !important;
+    }
+    .wizard > .wizardTab {
+        display: none !important;
+    }
+    .wizard > .page {
+        display: block !important;
+        &:before{
+            content: attr(data-title);
+            display: block;
+            border-top: 3px solid #6B95FF;
+            width: 100%;
+            font-weight: bold;
+        }
+    }
+    .nextButton, .validButton, .previousButton {
+        display: none;
+    }
+
+    .validMobileButton {
+        display: block;
+    }
+
+}

@@ -1,0 +1,46 @@
+﻿<html>
+<head>
+	<link rel="stylesheet" href="_bootstrap.min.css">
+	<link rel="stylesheet" href="wizard.css">
+</head>
+	<div id="wizard" class="wizard" data-title="Wizard">
+		<div class="page" data-title="Part 1">
+			<h3>Welcome to the wizard</h3>
+			<p>Please click on next</p>
+		</div>
+		<div class="page" data-title="Part 2" data-callback="callback1">
+		<h3>Who are you ? </h3>
+		<form>
+			<label>Name : 
+				<input type="text" class="form-control" name="name" />
+			</label>
+		</form>
+		</div>
+		<div id="page3" class="page" data-title="Part 3" data-enabled="false">
+		<h3>Thank you</h3>
+		</div>
+	</div>
+
+<script src="__jquery.min.js"></script>
+<script src="_bootstrap.min.js"></script>
+<script src="wizard.min.js"></script>
+<script>
+	$("#wizard").wizard({
+		callback: function() {
+			alert('Hello ' + $("input[name='name']").val());
+		}
+	});
+	
+	function callback1() {
+		if ($("input[name='name']").val() != '') {
+			// active next options
+			$(".nav-tabs").children('li').removeClass('disabled');
+			return true;
+		}
+		else {
+			alert('Name is mandatory');
+		}
+		return false;
+	}
+</script>
+</html>
